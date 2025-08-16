@@ -1,6 +1,7 @@
 const core = require('@actions/core')
 const exec = require('@actions/exec')
 const tc = require('@actions/tool-cache')
+const io = require('@actions/io');
 
 export async function run() {
     try {
@@ -24,10 +25,10 @@ async function setupKtlint(version) {
 
     // await exec.exec('curl', '-sSLO', [`https://github.com/pinterest/ktlint/releases/download/${version}/ktlint`]);
     await tc.downloadTool(`https://github.com/pinterest/ktlint/releases/download/${version}/ktlint`);
-    await exec.exec('chmod', 'a+x', 'ktlint');
-    await exec.exec('mv', 'ktlint', '/usr/local/bin/');
+    await exec.exec('chmod a+x ktlint');
+    await io.mv('ktlint', '/usr/local/bin/');
 
-    core.info("Ktlint installed successfully."); async
+    core.info("Ktlint installed successfully.");
 }
 
 if (__filename.endsWith('index.js')) { run() }
