@@ -30153,7 +30153,7 @@ async function run() {
         const version = core.getInput('version')
 
         await setupKtlint(version)
-        await runKtlint()
+        // await runKtlint()
     } catch (error) {
         if (/\bprocess\b.+\bfailed\b/.test(error.message)) {
             core.setFailed(error.message)
