@@ -30153,6 +30153,7 @@ async function run() {
         const version = core.getInput('version')
 
         await setupKtlint(version)
+        await runKtlint()
     } catch (error) {
         if (/\bprocess\b.+\bfailed\b/.test(error.message)) {
             core.setFailed(error.message)
@@ -30163,7 +30164,12 @@ async function run() {
     process.exit()
 }
 
-async function setupKtlint(version) {
+async function runKtlint() {
+    core.info(`Running Ktlint check`);
+    await exec.exec('ktlint');
+}
+
+async function execKtlint(version) {
     // const ktlintInstall = `curl -sSLO https://github.com/pinterest/ktlint/releases/download/${version}/ktlint && chmod a+x ktlint && sudo mv ktlint /usr/local/bin/`
 
     core.info(`Installing Ktlint version: ${version}...`);
