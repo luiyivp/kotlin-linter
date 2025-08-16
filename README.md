@@ -1,4 +1,4 @@
-# Kotlin Linter (Ktlint) action
+# Kotlin Linter (Ktlint) Action
 
 This action installs [Ktlint](https://pinterest.github.io/ktlint/latest/), adds it to the `PATH` and runs ktlint (check).
 

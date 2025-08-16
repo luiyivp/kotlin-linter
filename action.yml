@@ -1,4 +1,4 @@
-name: "Kotlin Linter (Ktlint)"
+name: "Kotlin Linter (Ktlint) Action"
 description: "Run Ktlint in your Kotlin project"
 author: "Luiyi Valentin"
 
