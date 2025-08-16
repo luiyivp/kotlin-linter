@@ -30171,17 +30171,17 @@ async function setupKtlint(version) {
     core.info(`Installing Ktlint version: ${version}...`);
     
     const ktlintPath = await tc.downloadTool(ktlintUrl);
-    await exec.exec('ls -ltr', ktlintPath);
     await exec.exec('chmod a+x', ktlintPath);
-    await io.mv(ktlintPath, '/usr/local/bin/');
+    await exec.exec(ktlintPath);
+    // await io.mv(ktlintPath, '/usr/local/bin/');
 
     core.info("Ktlint installed successfully.");
 }
 
-async function runKtlint() {
-    core.info(`Running Ktlint check`);
-    await exec.exec('ktlint');
-}
+// async function runKtlint() {
+//     core.info(`Running Ktlint check`);
+//     await exec.exec('ktlint');
+// }
 
 if (__filename.endsWith('index.js')) { run() }
 })();
