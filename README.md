@@ -1,12 +1,12 @@
 # Kotlin Linter (Ktlint) action
 
-This action installs Ktlint, adds it to the PATH and runs ktlint (check).
+This action installs [Ktlint](https://pinterest.github.io/ktlint/latest/), adds it to the `PATH` and runs ktlint (check).
 
 ## Inputs
 
 ### `version`
 
-The Ktlint version to install.
+The Ktlint [version](https://github.com/pinterest/ktlint/tags) to install.
 
 ## Example usage
 
