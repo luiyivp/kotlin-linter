@@ -12,7 +12,7 @@ The Ktlint version to install.
 
 ```yaml
 - name: Run Ktlint
-  uses: ./.github/actions/kotlin-linter
+  uses: luiyivp/kotlin-linter@v1.0
   with:
     version: '1.7.1'
 ```
