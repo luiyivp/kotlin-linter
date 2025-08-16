@@ -1,0 +1,13 @@
+name: "Setup Ktlint"
+description: "Installs Ktlint, adds it to the PATH and runs ktlint (check)"
+author: "Luiyi Valentin"
+
+inputs:
+  version:
+    description: "The Ktlint version to install"
+    required: false
+    default: "1.7.1"
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
