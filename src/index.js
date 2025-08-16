@@ -21,7 +21,7 @@ async function setupKtlint(version) {
 
     core.info(`Installing Ktlint version: ${version}...`);
 
-    await exec.exec('curl', '-sSLO', `https://github.com/pinterest/ktlint/releases/download/${version}/ktlint`);
+    await exec.exec('curl', '-sSLO', [`https://github.com/pinterest/ktlint/releases/download/${version}/ktlint`]);
     await exec.exec('chmod', 'a+x', 'ktlint');
     await exec.exec('mv', 'ktlint', '/usr/local/bin/');
 
