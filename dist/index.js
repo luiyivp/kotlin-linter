@@ -25643,6 +25643,14 @@ module.exports = {
 
 /***/ }),
 
+/***/ 3247:
+/***/ ((module) => {
+
+module.exports = eval("require")("@actions/tool-cache");
+
+
+/***/ }),
+
 /***/ 2613:
 /***/ ((module) => {
 
@@ -27592,10 +27600,11 @@ __nccwpck_require__.r(__webpack_exports__);
 /* harmony export */ });
 const core = __nccwpck_require__(7484)
 const exec = __nccwpck_require__(5236)
+const tc = __nccwpck_require__(3247)
 
 async function run() {
     try {
-        const version = core.getInput('version');
+        const version = core.getInput('version')
 
         await setupKtlint(version)
     } catch (error) {
@@ -27613,11 +27622,12 @@ async function setupKtlint(version) {
 
     core.info(`Installing Ktlint version: ${version}...`);
 
-    await exec.exec('curl', '-sSLO', [`https://github.com/pinterest/ktlint/releases/download/${version}/ktlint`]);
+    // await exec.exec('curl', '-sSLO', [`https://github.com/pinterest/ktlint/releases/download/${version}/ktlint`]);
+    await tc.downloadTool(`https://github.com/pinterest/ktlint/releases/download/${version}/ktlint`);
     await exec.exec('chmod', 'a+x', 'ktlint');
     await exec.exec('mv', 'ktlint', '/usr/local/bin/');
 
-    core.info("Ktlint installed successfully.");async 
+    core.info("Ktlint installed successfully."); async
 }
 
 if (__filename.endsWith('index.js')) { run() }
