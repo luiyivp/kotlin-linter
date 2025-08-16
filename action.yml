@@ -1,5 +1,5 @@
-name: "Kotlin Linter - Ktlint"
-description: "Installs Ktlint, adds it to the PATH and runs ktlint (check)"
+name: "Kotlin Linter (Ktlint)"
+description: "Run Ktlint in your Kotlin project"
 author: "Luiyi Valentin"
 
 branding:
