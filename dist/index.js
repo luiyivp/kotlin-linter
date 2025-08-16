@@ -30164,23 +30164,23 @@ async function run() {
     process.exit()
 }
 
-async function runKtlint() {
-    core.info(`Running Ktlint check`);
-    await exec.exec('ktlint');
-}
 
-async function execKtlint(version) {
-    // const ktlintInstall = `curl -sSLO https://github.com/pinterest/ktlint/releases/download/${version}/ktlint && chmod a+x ktlint && sudo mv ktlint /usr/local/bin/`
+async function setupKtlint(version) {
+    const ktlintUrl = `https://github.com/pinterest/ktlint/releases/download/${version}/ktlint`
 
     core.info(`Installing Ktlint version: ${version}...`);
-
-    // await exec.exec('curl', '-sSLO', [`https://github.com/pinterest/ktlint/releases/download/${version}/ktlint`]);
-    const ktlintPath = await tc.downloadTool(`https://github.com/pinterest/ktlint/releases/download/${version}/ktlint`);
+    
+    const ktlintPath = await tc.downloadTool(ktlintUrl);
     await exec.exec('ls -ltr', ktlintPath);
     await exec.exec('chmod a+x', ktlintPath);
     await io.mv(ktlintPath, '/usr/local/bin/');
 
     core.info("Ktlint installed successfully.");
+}
+
+async function runKtlint() {
+    core.info(`Running Ktlint check`);
+    await exec.exec('ktlint');
 }
 
 if (__filename.endsWith('index.js')) { run() }
