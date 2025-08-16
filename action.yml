@@ -1,6 +1,10 @@
-name: "Setup Ktlint"
+name: "Kotlin Linter - Ktlint"
 description: "Installs Ktlint, adds it to the PATH and runs ktlint (check)"
 author: "Luiyi Valentin"
+
+branding:
+  icon: 'check'
+  color: 'purple'
 
 inputs:
   version:
