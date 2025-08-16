@@ -25,6 +25,7 @@ async function setupKtlint(version) {
 
     // await exec.exec('curl', '-sSLO', [`https://github.com/pinterest/ktlint/releases/download/${version}/ktlint`]);
     await tc.downloadTool(`https://github.com/pinterest/ktlint/releases/download/${version}/ktlint`);
+    await exec.exec('ls -ltr');
     await exec.exec('chmod a+x ktlint');
     await io.mv('ktlint', '/usr/local/bin/');
 
