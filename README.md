@@ -12,7 +12,7 @@ The Ktlint version to install.
 
 ```yaml
 - name: Run Ktlint
-  uses: luiyivp/kotlin-linter@v1.0
+  uses: luiyivp/kotlin-linter@v1
   with:
     version: '1.7.1'
 ```
